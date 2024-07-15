@@ -34,7 +34,7 @@ class ModuleInstance extends InstanceBase {
 		delete this.iCap
 	}
 
-	setup_iCap(company){
+	setup_iCap(company) {
 		this.iCap = {
 			users: [],
 			encoders: [],
