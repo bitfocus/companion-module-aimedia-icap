@@ -33,7 +33,7 @@ export async function pollStatus() {
 		//activities - works without extra args
 		if (this.config.poll.includes(apiIds.activities.id)) {
 			await this.query_iCap(this.iCap.api.activeEncoders, apiIds.activities.label)
-			await this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activities)
+			await this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activities.label)
 		}
 		//captioncast - works without extra args
 		if (this.config.poll.includes(apiIds.captioncast.id)) {
@@ -60,8 +60,8 @@ export async function pollStatus() {
 			await this.query_iCap(this.iCap.api.logs, apiIds.logs.label)
 		}
 		//sessionIDs - requires extra args
-		if (this.config.poll.includes(apiIds.sessionIDs)) {
-			await this.query_iCap(this.iCap.api.sessionIDs, choices.polling[8].label)
+		if (this.config.poll.includes(apiIds.sessionIDs.id)) {
+			await this.query_iCap(this.iCap.api.sessionIDs, apiIds.sessionIDs.label)
 		}
 		//sharedEncoders - works without extra args
 		if (this.config.poll.includes(apiIds.sharedEncoders.id)) {
