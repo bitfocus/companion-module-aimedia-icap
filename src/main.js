@@ -3,6 +3,7 @@ import { UpgradeScripts } from './upgrades.js'
 import { UpdateActions } from './actions.js'
 import { UpdateFeedbacks } from './feedbacks.js'
 import { UpdateVariableDefinitions } from './variables.js'
+import { apiIds } from './consts.js'
 import * as config from './config.js'
 import * as logging from './logging.js'
 import * as polling from './polling.js'
@@ -26,6 +27,7 @@ class ModuleInstance extends InstanceBase {
 	async destroy() {
 		this.log('debug', `destroy: ${this.id}`)
 		this.stopPolling()
+		//await this.query_iCap(this.iCap.api.sessionLogout, 'Log out') needs to be a post
 		if (this.axios) {
 			delete this.axios
 		}
@@ -70,11 +72,12 @@ class ModuleInstance extends InstanceBase {
 		}
 	}
 
-	setupAxios() {
+	async setupAxios() {
 		if (this.pollTimer) {
 			clearTimeout(this.pollTimer)
 		}
 		if (this.axios) {
+			//await this.query_iCap(this.iCap.api.sessionLogout, 'Log out')
 			delete this.axios
 		}
 		if (this.config.user && this.config.password && this.config.company) {
