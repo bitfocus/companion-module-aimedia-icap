@@ -65,7 +65,7 @@ export async function pollStatus() {
 		}
 		//sharedEncoders - works without extra args
 		if (this.config.poll.includes(apiIds.sharedEncoders.id)) {
-			await this.query_iCap(this.iCap.api.sharedEncoders, apiIds.sharedEncoders.id)
+			await this.query_iCap(this.iCap.api.sharedEncoders, apiIds.sharedEncoders.label)
 		}
 		//systemHealth - works without extra args
 		if (this.config.poll.includes(apiIds.systemHealth.id)) {
