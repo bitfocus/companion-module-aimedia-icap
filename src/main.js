@@ -3,7 +3,7 @@ import { UpgradeScripts } from './upgrades.js'
 import { UpdateActions } from './actions.js'
 import { UpdateFeedbacks } from './feedbacks.js'
 import { UpdateVariableDefinitions } from './variables.js'
-import { apiIds } from './consts.js'
+import { UpdateVariableValues } from './updateVariables.js'
 import * as config from './config.js'
 import * as logging from './logging.js'
 import * as polling from './polling.js'
@@ -128,6 +128,10 @@ class ModuleInstance extends InstanceBase {
 
 	updateVariableDefinitions() {
 		UpdateVariableDefinitions(this)
+	}
+
+	updateVariableValues() {
+		UpdateVariableValues(this)
 	}
 }
 

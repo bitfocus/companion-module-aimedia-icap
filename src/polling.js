@@ -1,4 +1,4 @@
-import { apiIds, choices } from './consts.js'
+import { apiIds } from './consts.js'
 
 export function startPolling() {
 	if (this.pollTimer) {
@@ -27,13 +27,16 @@ export function stopPolling() {
 export async function pollStatus() {
 	if (this.axios) {
 		//accesscode - works without extra args
-		if (this.config.poll.includes(apiIds.accesscode.id)) {
-			await this.query_iCap(this.iCap.api.accesscodes, apiIds.accesscode.label)
+		if (this.config.poll.includes(apiIds.accesscodes.id)) {
+			await this.query_iCap(this.iCap.api.accesscodes, apiIds.accesscodes.label)
 		}
-		//activities - works without extra args
-		if (this.config.poll.includes(apiIds.activities.id)) {
-			await this.query_iCap(this.iCap.api.activeEncoders, apiIds.activities.label)
-			await this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activities.label)
+		//activeCaptioners - works without extra args
+		if (this.config.poll.includes(apiIds.activitiesCaptioners.id)) {
+			await this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activitiesCaptioners.label)
+		}
+		//activeCaptioners - works without extra args
+		if (this.config.poll.includes(apiIds.activitiesEncoders.id)) {
+			await this.query_iCap(this.iCap.api.activeEncoders, apiIds.activitiesEncoders.label)
 		}
 		//captioncast - works without extra args
 		if (this.config.poll.includes(apiIds.captioncast.id)) {
@@ -57,11 +60,11 @@ export async function pollStatus() {
 		}
 		//logs - requires extra args
 		if (this.config.poll.includes(apiIds.logs.id)) {
-			await this.query_iCap(this.iCap.api.logs, apiIds.logs.label)
+			//await this.query_iCap(this.iCap.api.logs, apiIds.logs.label)
 		}
 		//sessionIDs - requires extra args
 		if (this.config.poll.includes(apiIds.sessionIDs.id)) {
-			await this.query_iCap(this.iCap.api.sessionIDs, apiIds.sessionIDs.label)
+			//await this.query_iCap(this.iCap.api.sessionIDs, apiIds.sessionIDs.label)
 		}
 		//sharedEncoders - works without extra args
 		if (this.config.poll.includes(apiIds.sharedEncoders.id)) {
@@ -73,7 +76,7 @@ export async function pollStatus() {
 		}
 		//uptime - requires extra args  - requires iCap Broadcast Plus plan
 		if (this.config.poll.includes(apiIds.uptime.id)) {
-			await this.query_iCap(this.iCap.api.uptime, apiIds.uptime.label)
+			//await this.query_iCap(this.iCap.api.uptime, apiIds.uptime.label)
 		}
 		//users - works without extra args
 		if (this.config.poll.includes(apiIds.users.id)) {
@@ -81,4 +84,6 @@ export async function pollStatus() {
 		}
 	}
 	this.startPolling()
+	this.updateVariableDefinitions() // export variable definitions
+	this.updateVariableValues()
 }

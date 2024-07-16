@@ -1,8 +1,8 @@
-import { combineRgb } from '@companion-module/base'
+//import { combineRgb } from '@companion-module/base'
 
 export async function UpdateFeedbacks(self) {
 	let feedbackDefs = []
-	feedbackDefs['ChannelState'] = {
+	/* feedbackDefs['ChannelState'] = {
 		name: 'Example Feedback',
 		type: 'boolean',
 		label: 'Channel State',
@@ -28,6 +28,6 @@ export async function UpdateFeedbacks(self) {
 				return false
 			}
 		},
-	}
+	} */
 	self.setFeedbackDefinitions(feedbackDefs)
 }

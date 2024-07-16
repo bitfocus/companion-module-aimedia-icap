@@ -4,8 +4,9 @@ export const iCapHeaders = { 'content-type': 'application/json' }
 export const dummy_password = '********'
 
 export const apiIds = {
-	accesscode: { id: 'accesscode', label: 'Access Codes' },
-	activities: { id: 'activities', label: 'Activities' },
+	accesscodes: { id: 'accesscode', label: 'Access Codes' },
+	activitiesCaptioners: { id: 'activitiesCaptioners', label: 'Activities - Captioners' },
+	activitiesEncoders: { id: 'activitiesEncoders', label: 'Activities - Encoders' },
 	captioncast: { id: 'captioncast', label: 'Caption Cast' },
 	providers: { id: 'providers', label: 'Caption Providers' },
 	email: { id: 'email', label: 'Email Notices' },
@@ -21,16 +22,17 @@ export const apiIds = {
 
 export const choices = {
 	polling: [
-		apiIds.accesscode,
-		apiIds.activities,
-		apiIds.captioncast,
-		apiIds.providers,
-		apiIds.email,
-		apiIds.encoderActivity,
-		apiIds.encoderPermissions,
+		//apiIds.accesscodes,
+		//apiIds.activitiesCaptioners,
+		apiIds.activitiesEncoders,
+		//apiIds.captioncast,
+		//apiIds.providers,
+		//apiIds.email,
+		//apiIds.encoderActivity,
+		//apiIds.encoderPermissions,
 		//apiIds.logs,
 		//apiIds.sessionIDs,
-		apiIds.sharedEncoders,
+		//apiIds.sharedEncoders,
 		apiIds.systemHealth,
 		//  apiIds.uptime,
 		apiIds.users,

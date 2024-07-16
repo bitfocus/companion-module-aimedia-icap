@@ -10,7 +10,7 @@ export function logResponse(response, name) {
 		if (this.config.verbose) {
 			this.log('debug', `Data Recieved:\n${data}`)
 		}
-		this.parseResponse(data, name)
+		this.parseResponse(response.data, name)
 	} else {
 		this.updateStatus(InstanceStatus.UnknownWarning, 'No Data')
 		this.log('warn', `Response contains no data`)

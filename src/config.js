@@ -42,8 +42,9 @@ export function getConfigFields() {
 			id: 'poll',
 			label: 'Poll Data',
 			witdth: 6,
-			default: [apiIds.activities.id, apiIds.systemHealth.id, apiIds.users.id],
+			default: [apiIds.activitiesEncoders.id, apiIds.systemHealth.id, apiIds.users.id],
 			choices: choices.polling,
+			minSelection: 1,
 		},
 		{
 			type: 'checkbox',

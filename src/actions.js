@@ -1,6 +1,6 @@
 export async function UpdateActions(self) {
 	let actionDefs = []
-	actionDefs['sample_action'] = {
+	/* 	actionDefs['sample_action'] = {
 		name: 'My First Action',
 		options: [
 			{
@@ -15,6 +15,6 @@ export async function UpdateActions(self) {
 		callback: async (event) => {
 			console.log('Hello world!', event.options.num)
 		},
-	}
+	} */
 	self.setActionDefinitions(actionDefs)
 }
