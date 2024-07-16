@@ -19,7 +19,14 @@ export async function UpdateVariableValues(self) {
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
-		//varDefs.push({ variableId: 'activitiesCaptioners', name: 'My activitiesCaptioners variable' })
+		let online = 0
+		let active = 0
+		for (const captioner of self.iCap.captioners) {
+			online += captioner.online ? 1 : 0
+			active += captioner.cc_activity.startsWith('Active') ? 1 : 0
+		}
+		varList['captioners_online'] = online
+		varList['captioners_active'] = active
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesEncoders.id)) {

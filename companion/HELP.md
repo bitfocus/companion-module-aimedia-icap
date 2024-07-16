@@ -2,12 +2,13 @@
 
 Returns some status variables at the specified polling interval.
 
-Returned variables depend on the selections in Config - Poll Data.
+Available feedbacks & returned variables depend on the selections in Config - Poll Data.
 
 ### Poll Data Options
 
 - Access Codes
-- Encoder Activities
+- Activities - Captioners
+- Activities - Encoders
 - Providers
 - System Health
 - Users
@@ -18,6 +19,7 @@ Returned variables depend on the selections in Config - Poll Data.
 
 ### Feedbacks
 
+- Captioning Active
 - Encoder Audio OK
 - Encoder CC Activity
 - Encoder Online

@@ -30,7 +30,10 @@ export async function UpdateVariableDefinitions(self) {
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
-		//varDefs.push({ variableId: 'activitiesCaptioners', name: 'My activitiesCaptioners variable' })
+		varDefs.push(
+			{ variableId: 'captioners_online', name: 'Captioners: Online Total' },
+			{ variableId: 'captioners_active', name: 'Captioners: Active Total' }
+		)
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesEncoders.id)) {
