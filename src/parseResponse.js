@@ -13,4 +13,6 @@ export async function parseResponse(data, name) {
 	this.iCap.emailSubscriptions = data.subscriptions ?? this.iCap.emailSubscriptions
 	this.iCap.users = data.users ?? this.iCap.users
 	this.iCap.sharedEncoders = data.sharedEncoders ?? this.iCap.sharedEncoders
+	this.updateVariableValues()
+	this.checkFeedbacks()
 }

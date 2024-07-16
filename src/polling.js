@@ -79,7 +79,6 @@ export async function pollStatus() {
 			await this.query_iCap(this.iCap.api.users, apiIds.users.label)
 		}
 	}
-	this.updateVariableValues()
 	if (this.config.pollInterval > 0) {
 		this.pollTimer = setTimeout(() => {
 			this.pollStatus()

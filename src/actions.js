@@ -7,6 +7,7 @@ export async function UpdateActions(self) {
 			await self.updateFeedbacks() // export feedbacks
 			await self.updateVariableDefinitions() // export variable definitions
 			await self.updateVariableValues()
+			self.checkFeedbacks()
 		},
 	}
 	self.setActionDefinitions(actionDefs)
