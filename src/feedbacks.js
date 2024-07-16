@@ -2,14 +2,11 @@ import { apiIds, styles } from './consts.js'
 
 export async function UpdateFeedbacks(self) {
 	let feedbackDefs = []
-	if (self.config.poll.includes(apiIds.activitiesEncoders.id)) {
+	if (self.config.poll.includes(apiIds.activitiesEncoders.id) && self.iCap.encoders.length !== 0) {
 		let encoderChoices = []
 		for (let i = 0; i < self.iCap.encoders.length; i++) {
 			encoderChoices.push({ id: i, label: self.iCap.encoders[i].username })
 		}
-		if (encoderChoices.length === 0) {
-			return
-		} //no encoders available
 		const encoderOption = {
 			id: 'encoder',
 			type: 'dropdown',
