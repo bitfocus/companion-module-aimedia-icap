@@ -4,8 +4,6 @@ Returns some status variables at the specified polling interval.
 
 Returned variables depend on the selections in Config - Poll Data.
 
-No actions or feedbacks.
-
 ### Poll Data Options
 
 - Access Codes
@@ -13,3 +11,13 @@ No actions or feedbacks.
 - Providers
 - System Health
 - Users
+
+### Actions
+
+- Repopulate Variables
+
+### Feedbacks
+
+- Encoder Audio OK
+- Encoder CC Activity
+- Encoder Online

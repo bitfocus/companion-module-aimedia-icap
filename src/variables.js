@@ -128,7 +128,8 @@ export async function UpdateVariableDefinitions(self) {
 				name: 'System Heatlh - most recent primary server uptime event',
 			},
 			{ variableId: 'systemHealth_primary_auth_server_status', name: 'System Heatlh - primar auth server status' },
-			{ variableId: 'systemHealth_reporting_server', name: 'System Heatlh - reporting server' }
+			{ variableId: 'systemHealth_reporting_server', name: 'System Heatlh - reporting server' },
+			{ variableId: 'systemHealth_health_messages', name: 'System Heatlh - Messages' }
 		)
 	}
 	//uptime - requires extra args  - requires iCap Broadcast Plus plan

@@ -1,33 +1,53 @@
-//import { combineRgb } from '@companion-module/base'
+import { apiIds, styles } from './consts.js'
 
 export async function UpdateFeedbacks(self) {
 	let feedbackDefs = []
-	/* feedbackDefs['ChannelState'] = {
-		name: 'Example Feedback',
-		type: 'boolean',
-		label: 'Channel State',
-		defaultStyle: {
-			bgcolor: combineRgb(255, 0, 0),
-			color: combineRgb(0, 0, 0),
-		},
-		options: [
-			{
-				id: 'num',
-				type: 'number',
-				label: 'Test',
-				default: 5,
-				min: 0,
-				max: 10,
+	if (self.config.poll.includes(apiIds.activitiesEncoders.id)) {
+		let encoderChoices = []
+		for (let i = 0; i < self.iCap.encoders.length; i++) {
+			encoderChoices.push({ id: i, label: self.iCap.encoders[i].username })
+		}
+		if (encoderChoices.length === 0) {
+			return
+		} //no encoders available
+		const encoderOption = {
+			id: 'encoder',
+			type: 'dropdown',
+			label: 'Encoder',
+			default: encoderChoices[0].id,
+			choices: encoderChoices,
+		}
+		feedbackDefs['encoder_online'] = {
+			name: 'Encoder Online',
+			type: 'boolean',
+			label: 'Encoder Online',
+			defaultStyle: styles.green,
+			options: [encoderOption],
+			callback: (feedback) => {
+				return self.iCap.encoders[feedback.options.encoder]?.online
 			},
-		],
-		callback: (feedback) => {
-			console.log('Hello world!', feedback.options.num)
-			if (feedback.options.num > 5) {
-				return true
-			} else {
-				return false
-			}
-		},
-	} */
+		}
+		feedbackDefs['encoder_CC_activity'] = {
+			name: 'Encoder CC Active',
+			type: 'boolean',
+			label: 'Encoder CC Active',
+			defaultStyle: styles.red,
+			options: [encoderOption],
+			callback: (feedback) => {
+				return self.iCap.encoders[feedback.options.encoder]?.cc_activity.startsWith('Active')
+			},
+		}
+		feedbackDefs['encoder_Audio_OK'] = {
+			name: 'Encoder Audio OK',
+			type: 'boolean',
+			label: 'Encoder Audio OK',
+			defaultStyle: styles.green,
+			options: [encoderOption],
+			callback: (feedback) => {
+				return self.iCap.encoders[feedback.options.encoder]?.audio_status === 'Audio OK'
+			},
+		}
+	}
+
 	self.setFeedbackDefinitions(feedbackDefs)
 }

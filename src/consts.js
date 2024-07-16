@@ -1,3 +1,5 @@
+import { combineRgb } from '@companion-module/base'
+
 export const iCapGateway = 'https://icap.eegapis.com/api/1.0/'
 export const iCapTimeout = 5000
 export const iCapHeaders = { 'content-type': 'application/json' }
@@ -37,4 +39,15 @@ export const choices = {
 		//  apiIds.uptime,
 		apiIds.users,
 	],
+}
+
+export const styles = {
+	red: {
+		bgcolor: combineRgb(255, 0, 0),
+		color: combineRgb(0, 0, 0),
+	},
+	green: {
+		bgcolor: combineRgb(0, 204, 0),
+		color: combineRgb(0, 0, 0),
+	},
 }

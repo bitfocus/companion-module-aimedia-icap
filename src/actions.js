@@ -1,20 +1,13 @@
 export async function UpdateActions(self) {
 	let actionDefs = []
-	/* 	actionDefs['sample_action'] = {
-		name: 'My First Action',
-		options: [
-			{
-				id: 'num',
-				type: 'number',
-				label: 'Test',
-				default: 5,
-				min: 0,
-				max: 100,
-			},
-		],
-		callback: async (event) => {
-			console.log('Hello world!', event.options.num)
+	actionDefs['update_variables'] = {
+		name: 'Repopulate Variables',
+		options: [],
+		callback: async () => {
+			await self.updateFeedbacks() // export feedbacks
+			await self.updateVariableDefinitions() // export variable definitions
+			await self.updateVariableValues()
 		},
-	} */
+	}
 	self.setActionDefinitions(actionDefs)
 }

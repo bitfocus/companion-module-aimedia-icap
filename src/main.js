@@ -112,10 +112,7 @@ class ModuleInstance extends InstanceBase {
 		this.setup_iCap(this.config.company)
 		this.setupAxios()
 		this.updateStatus(InstanceStatus.Connecting)
-		this.updateActions() // export actions
-		this.updateFeedbacks() // export feedbacks
-		this.updateVariableDefinitions() // export variable definitions
-		this.pollStatus()
+		this.startPolling()
 	}
 
 	updateActions() {

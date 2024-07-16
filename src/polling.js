@@ -1,18 +1,14 @@
 import { apiIds } from './consts.js'
 
-export function startPolling() {
+export async function startPolling() {
 	if (this.pollTimer) {
 		clearTimeout(this.pollTimer)
 	}
-	if (this.config.pollInterval > 0) {
-		this.pollTimer = setTimeout(() => {
-			this.pollStatus()
-		}, this.config.pollInterval * 1000)
-		return true
-	} else {
-		delete this.pollTimer
-		return undefined
-	}
+	await this.pollStatus()
+	this.updateActions() // export actions
+	this.updateFeedbacks() // export feedbacks
+	this.updateVariableDefinitions() // export variable definitions
+	this.updateVariableValues()
 }
 
 export function stopPolling() {
@@ -83,7 +79,14 @@ export async function pollStatus() {
 			await this.query_iCap(this.iCap.api.users, apiIds.users.label)
 		}
 	}
-	this.startPolling()
-	this.updateVariableDefinitions() // export variable definitions
 	this.updateVariableValues()
+	if (this.config.pollInterval > 0) {
+		this.pollTimer = setTimeout(() => {
+			this.pollStatus()
+		}, this.config.pollInterval * 1000)
+		return true
+	} else {
+		delete this.pollTimer
+		return undefined
+	}
 }
