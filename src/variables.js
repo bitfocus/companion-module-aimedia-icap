@@ -37,7 +37,7 @@ export async function UpdateVariableDefinitions(self) {
 		for (const encoder of self.iCap.encoders) {
 			varDefs.push(
 				{ variableId: `encoder_${encoder.username}_username`, name: `Encoder ${encoder.username}` },
-				{ variableId: `encoder_${encoder.username}_usertype`, name: `Encoder ${encoder.username} Usertype` },
+				{ variableId: `encoder_${encoder.username}_usertype`, name: `Encoder ${encoder.username} User Type` },
 				{ variableId: `encoder_${encoder.username}_email`, name: `Encoder ${encoder.username} Email` },
 				{ variableId: `encoder_${encoder.username}_sessionKey`, name: `Encoder ${encoder.username} Session Key` },
 				{ variableId: `encoder_${encoder.username}_online`, name: `Encoder ${encoder.username} Online` },
@@ -49,7 +49,7 @@ export async function UpdateVariableDefinitions(self) {
 				},
 				{ variableId: `encoder_${encoder.username}_audioStatus`, name: `Encoder ${encoder.username} Audio Status` },
 				{ variableId: `encoder_${encoder.username}_cc_activity`, name: `Encoder ${encoder.username} CC Activity` },
-				{ variableId: `encoder_${encoder.username}_broadcastPlus`, name: `Encoder ${encoder.username} broadcastPlus` }
+				{ variableId: `encoder_${encoder.username}_broadcastPlus`, name: `Encoder ${encoder.username} Broadcast Plus` }
 			)
 		}
 	}
@@ -97,38 +97,38 @@ export async function UpdateVariableDefinitions(self) {
 		varDefs.push(
 			{
 				variableId: 'systemHealth_full_report_available_from_this_database',
-				name: 'System Heatlh - full report available from this database',
+				name: 'System Health - Full report available from this database',
 			},
 			{
 				variableId: 'systemHealth_icap_server_events_logged_5mins',
-				name: 'System Heatlh - icap server events logged 5mins',
+				name: 'System Health - iCap server events logged: 5mins',
 			},
 			{
 				variableId: 'systemHealth_icap_server_events_logged_15mins',
-				name: 'System Heatlh -icap server events logged 15mins',
+				name: 'System Health - iCap server events logged: 15mins',
 			},
 			{
 				variableId: 'systemHealth_icap_server_events_logged_60mins',
-				name: 'System Heatlh - icap server events logged 60mins',
+				name: 'System Health - iCap server events logged: 60mins',
 			},
 			{
 				variableId: 'systemHealth_encoders_stable_percent_5mins',
-				name: 'System Heatlh - encoders stable percent 5mins',
+				name: 'System Health - Encoders stable percent: 5mins',
 			},
 			{
 				variableId: 'systemHealth_encoders_stable_percent_15mins',
-				name: 'System Heatlh - encoders stable percent 15mins',
+				name: 'System Health - Encoders stable percent: 15mins',
 			},
 			{
 				variableId: 'systemHealth_encoders_stable_percent_60mins',
-				name: 'System Heatlh - encoders stable percent 60mins',
+				name: 'System Health - Encoders stable percent: 60mins',
 			},
 			{
 				variableId: 'systemHealth_most_recent_primary_server_uptime_event',
-				name: 'System Heatlh - most recent primary server uptime event',
+				name: 'System Health - Most Recent Primary Server uptime event',
 			},
-			{ variableId: 'systemHealth_primary_auth_server_status', name: 'System Heatlh - primar auth server status' },
-			{ variableId: 'systemHealth_reporting_server', name: 'System Heatlh - reporting server' },
+			{ variableId: 'systemHealth_primary_auth_server_status', name: 'System Heatlh - Primary Auth Server Status' },
+			{ variableId: 'systemHealth_reporting_server', name: 'System Heatlh - Reporting Server' },
 			{ variableId: 'systemHealth_health_messages', name: 'System Heatlh - Messages' }
 		)
 	}
