@@ -5,8 +5,8 @@
 	"description": "Companion Module for AI Media (EEG) iCap cloud portal",
 	"version": "0.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/phillipivan/companion-module-aimedia-icap.git",
-	"bugs": "https://github.com/phillipivan/companion-module-aimedia-icap/issues",
+	"repository": "git+https://github.com/bitfocus/companion-module-aimedia-icap.git",
+	"bugs": "https://github.com/bitfocus/companion-module-aimedia-icap/issues",
 	"maintainers": [
 		{
 			"name": "Phillip Ivan Pietruschka",
