@@ -8,7 +8,7 @@ export function logResponse(response, name) {
 		this.updateStatus(InstanceStatus.Ok)
 		const data = JSON.stringify(response.data)
 		if (this.config.verbose) {
-			this.log('debug', `Data Recieved:\n${data}`)
+			this.log('debug', `Query: ${name}\nData Recieved:\n${data}`)
 		}
 		this.parseResponse(response.data, name)
 	} else {
