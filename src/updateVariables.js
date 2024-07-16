@@ -4,7 +4,22 @@ export async function UpdateVariableValues(self) {
 	let varList = []
 	//accesscode - works without extra args
 	if (self.config.poll.includes(apiIds.accesscodes.id)) {
-		//varDefs.push({ variableId: 'accesscodes', name: 'My accesscodes variable' })
+		for (const code of self.iCap.accessCodes) {
+			try {
+				varList[`accesscode_${code.accesscode}`] = code.accesscode
+				varList[`accesscode_${code.accesscode}_broadcaster`] = code.broadcaster
+				varList[`accesscode_${code.accesscode}_primaryencoder`] = code.primaryencoder
+				varList[`accesscode_${code.accesscode}_service`] = code.service
+				varList[`accesscode_${code.accesscode}_accountsonline`] = code.accountsonline
+				varList[`accesscode_${code.accesscode}_secondaryencoder`] = code.secondaryencoder
+				varList[`accesscode_${code.accesscode}_listeners`] = code.listeners
+				varList[`accesscode_${code.accesscode}_readonly`] = code.readonly
+				varList[`accesscode_${code.accesscode}_owner`] = code.owner
+				varList[`accesscode_${code.accesscode}_sharedwith`] = code.sharedwith
+			} catch (error) {
+				continue
+			}
+		}
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
@@ -38,10 +53,10 @@ export async function UpdateVariableValues(self) {
 	if (self.config.poll.includes(apiIds.providers.id)) {
 		for (const provider of self.iCap.providers) {
 			try {
-				varList[`encoder_${provider.company}_company`] = provider.company
-				varList[`encoder_${provider.company}_displayname`] = provider.displayname
-				varList[`encoder_${provider.company}_primarymail`] = provider.primarymail
-				varList[`encoder_${provider.company}_primaryphone`] = provider.primaryphone
+				varList[`provider_${provider.company}_company`] = provider.company
+				varList[`provider_${provider.company}_displayname`] = provider.displayname
+				varList[`provider_${provider.company}_primarymail`] = provider.primarymail
+				varList[`provider_${provider.company}_primaryphone`] = provider.primaryphone
 			} catch (error) {
 				continue
 			}

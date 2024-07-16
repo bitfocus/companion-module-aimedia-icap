@@ -22,11 +22,11 @@ export const apiIds = {
 
 export const choices = {
 	polling: [
-		//apiIds.accesscodes,
+		apiIds.accesscodes,
 		//apiIds.activitiesCaptioners,
 		apiIds.activitiesEncoders,
 		//apiIds.captioncast,
-		//apiIds.providers,
+		apiIds.providers,
 		//apiIds.email,
 		//apiIds.encoderActivity,
 		//apiIds.encoderPermissions,

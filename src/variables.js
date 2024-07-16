@@ -4,7 +4,29 @@ export async function UpdateVariableDefinitions(self) {
 	let varDefs = []
 	//accesscode - works without extra args
 	if (self.config.poll.includes(apiIds.accesscodes.id)) {
-		//varDefs.push({ variableId: 'accesscodes', name: 'My accesscodes variable' })
+		for (const code of self.iCap.accessCodes) {
+			varDefs.push(
+				{ variableId: `accesscode_${code.accesscode}`, name: `Access Code ${code.accesscode}` },
+				{ variableId: `accesscode_${code.accesscode}_broadcaster`, name: `Access Code ${code.accesscode} Broadcaster` },
+				{
+					variableId: `accesscode_${code.accesscode}_primaryencoder`,
+					name: `Access Code ${code.accesscode} Primary Encoder`,
+				},
+				{ variableId: `accesscode_${code.accesscode}_service`, name: `Access Code ${code.accesscode} Service` },
+				{
+					variableId: `accesscode_${code.accesscode}_accountsonline`,
+					name: `Access Code ${code.accesscode} Accounts Online`,
+				},
+				{
+					variableId: `accesscode_${code.accesscode}_secondaryencoder`,
+					name: `Access Code ${code.accesscode} Secondary Encoder`,
+				},
+				{ variableId: `accesscode_${code.accesscode}_listeners`, name: `Access Code ${code.accesscode} Listeners` },
+				{ variableId: `accesscode_${code.accesscode}_readonly`, name: `Access Code ${code.accesscode} Read Only` },
+				{ variableId: `accesscode_${code.accesscode}_owner`, name: `Access Code ${code.accesscode} Owner` },
+				{ variableId: `accesscode_${code.accesscode}_sharedwith`, name: `Access Code ${code.accesscode} Shared With` }
+			)
+		}
 	}
 	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
