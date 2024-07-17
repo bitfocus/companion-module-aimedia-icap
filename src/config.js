@@ -31,7 +31,7 @@ export function getConfigFields() {
 			label: 'Poll Rate (s)',
 			width: 6,
 			default: 60,
-			min: 5,
+			min: 1,
 			max: 3600,
 			range: true,
 			step: 1,
