@@ -9,7 +9,7 @@ Available feedbacks & returned variables depend on the selections in Config - Po
 - Access Codes
 - Activities - Captioners
 - Activities - Encoders
-- Providers
+- Caption Providers
 - System Health
 - Users
 
