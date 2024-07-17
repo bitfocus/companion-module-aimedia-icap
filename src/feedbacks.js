@@ -3,7 +3,7 @@ import { apiIds, styles } from './consts.js'
 
 export async function UpdateFeedbacks(self) {
 	let feedbackDefs = []
-	if (self.config.poll.includes(apiIds.activitiesEncoders.id) && self.iCap.encoders.length !== 0) {
+	if (self.config.poll.includes(apiIds.activitiesEncoders.id) && self.iCap.encoders.length > 0) {
 		let encoderChoices = []
 		for (let i = 0; i < self.iCap.encoders.length; i++) {
 			encoderChoices.push({ id: self.iCap.encoders[i].username, label: self.iCap.encoders[i].username })
@@ -23,7 +23,7 @@ export async function UpdateFeedbacks(self) {
 			options: [encoderOption],
 			callback: (feedback) => {
 				for (const enc of self.iCap.encoders) {
-					if (enc.username === feedback.options.encoder) {
+					if (enc?.username === feedback.options.encoder) {
 						return enc?.online
 					}
 				}
@@ -38,7 +38,7 @@ export async function UpdateFeedbacks(self) {
 			options: [encoderOption],
 			callback: (feedback) => {
 				for (const enc of self.iCap.encoders) {
-					if (enc.username === feedback.options.encoder) {
+					if (enc?.username === feedback.options.encoder) {
 						return enc?.cc_activity.startsWith('Active')
 					}
 				}
@@ -53,7 +53,7 @@ export async function UpdateFeedbacks(self) {
 			options: [encoderOption],
 			callback: (feedback) => {
 				for (const enc of self.iCap.encoders) {
-					if (enc.username === feedback.options.encoder) {
+					if (enc?.username === feedback.options.encoder) {
 						return enc?.audio_status === 'Audio OK'
 					}
 				}
@@ -78,7 +78,7 @@ export async function UpdateFeedbacks(self) {
 			callback: async (feedback, context) => {
 				const ac = await context.parseVariablesInString(feedback.options.accessCode)
 				for (const captioner of self.iCap.captioners) {
-					if (captioner.active_accesscode === ac && captioner.online && captioner.cc_activity.startsWith('Active')) {
+					if (captioner?.active_accesscode === ac && captioner?.online && captioner?.cc_activity.startsWith('Active')) {
 						return true
 					}
 				}

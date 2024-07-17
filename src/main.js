@@ -27,7 +27,6 @@ class ModuleInstance extends InstanceBase {
 	async destroy() {
 		this.log('debug', `destroy: ${this.id}`)
 		this.stopPolling()
-		//await this.query_iCap(this.iCap.api.sessionLogout, 'Log out') needs to be a post
 		if (this.axios) {
 			delete this.axios
 		}
@@ -77,7 +76,6 @@ class ModuleInstance extends InstanceBase {
 			clearTimeout(this.pollTimer)
 		}
 		if (this.axios) {
-			//await this.query_iCap(this.iCap.api.sessionLogout, 'Log out')
 			delete this.axios
 		}
 		if (this.config.user && this.config.password && this.config.company) {

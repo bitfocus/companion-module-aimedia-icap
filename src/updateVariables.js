@@ -2,7 +2,6 @@ import { apiIds } from './consts.js'
 
 export async function UpdateVariableValues(self) {
 	let varList = []
-	//accesscode - works without extra args
 	if (self.config.poll.includes(apiIds.accesscodes.id)) {
 		for (const code of self.iCap.accessCodes) {
 			varList[`accesscode_${code.accesscode}`] = code?.accesscode
@@ -17,7 +16,6 @@ export async function UpdateVariableValues(self) {
 			varList[`accesscode_${code.accesscode}_sharedwith`] = code?.sharedwith
 		}
 	}
-	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
 		let online = 0
 		let active = 0
@@ -28,7 +26,6 @@ export async function UpdateVariableValues(self) {
 		varList['captioners_online'] = online
 		varList['captioners_active'] = active
 	}
-	//activeCaptioners - works without extra args
 	if (self.config.poll.includes(apiIds.activitiesEncoders.id)) {
 		for (const encoder of self.iCap.encoders) {
 			varList[`encoder_${encoder.username}_username`] = encoder?.username
@@ -44,11 +41,9 @@ export async function UpdateVariableValues(self) {
 			varList[`encoder_${encoder.username}_broadcastPlus`] = encoder?.broadcast_plus
 		}
 	}
-	//captioncast - works without extra args
 	if (self.config.poll.includes(apiIds.captioncast.id)) {
 		//varDefs.push({ variableId: 'captioncast', name: 'My captioncast variable' })
 	}
-	//providers - works without extra args
 	if (self.config.poll.includes(apiIds.providers.id)) {
 		for (const provider of self.iCap.providers) {
 			varList[`provider_${provider.company}_company`] = provider?.company
@@ -57,15 +52,12 @@ export async function UpdateVariableValues(self) {
 			varList[`provider_${provider.company}_primaryphone`] = provider?.primaryphone
 		}
 	}
-	//email - works without extra args
 	if (self.config.poll.includes(apiIds.email.id)) {
 		//varDefs.push({ variableId: 'email', name: 'My email variable' })
 	}
-	//encoderActivity - works without extra args
 	if (self.config.poll.includes(apiIds.encoderActivity.id)) {
 		//varDefs.push({ variableId: 'encoderActivity', name: 'My encoderActivity variable' })
 	}
-	//encoderPermissions - works without extra args
 	if (self.config.poll.includes(apiIds.encoderPermissions.id)) {
 		//varDefs.push({ variableId: 'encoderPermissions', name: 'My encoderPermissions variable' })
 	}
@@ -77,11 +69,9 @@ export async function UpdateVariableValues(self) {
 	if (self.config.poll.includes(apiIds.sessionIDs.id)) {
 		//varDefs.push({ variableId: 'sessionIDs', name: 'My sessionIDs variable' })
 	}
-	//sharedEncoders - works without extra args
 	if (self.config.poll.includes(apiIds.sharedEncoders.id)) {
 		//varDefs.push({ variableId: 'sharedEncoders', name: 'My sharedEncoders variable' })
 	}
-	//systemHealth - works without extra args
 	if (self.config.poll.includes(apiIds.systemHealth.id)) {
 		varList[`systemHealth_full_report_available_from_this_database`] =
 			self.iCap.health?.full_report_available_from_this_database
@@ -101,7 +91,6 @@ export async function UpdateVariableValues(self) {
 	if (self.config.poll.includes(apiIds.uptime.id)) {
 		//varDefs.push({ variableId: 'uptime', name: 'My uptime variable' })
 	}
-	//users - works without extra args
 	if (self.config.poll.includes(apiIds.users.id)) {
 		for (const user of self.iCap.users) {
 			varList[`user_${user.username}_name`] = user?.username
