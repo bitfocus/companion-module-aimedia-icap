@@ -69,12 +69,18 @@ export async function UpdateFeedbacks(self) {
 			useVariables: true,
 			regex: Regex.SOMETHING,
 		}
+		const acInfo = {
+			id: 'acInfo',
+			type: 'static-text',
+			label: '',
+			value: 'If polling Access Codes, enter an access code variable here.',
+		}
 		feedbackDefs['captioning_active'] = {
 			name: 'Captioning Active',
 			type: 'boolean',
 			label: 'Captioning Active',
 			defaultStyle: styles.green,
-			options: [accesscode],
+			options: [accesscode, acInfo],
 			callback: async (feedback, context) => {
 				const ac = await context.parseVariablesInString(feedback.options.accessCode)
 				for (const captioner of self.iCap.captioners) {
