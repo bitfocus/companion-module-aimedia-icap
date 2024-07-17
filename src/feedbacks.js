@@ -84,8 +84,8 @@ export async function UpdateFeedbacks(self) {
 			label: 'Captioning Active',
 			defaultStyle: styles.green,
 			options: [accesscode],
-			callback: (feedback, context) => {
-				const ac = context.parseVariablesInString(feedback.options.accessCode)
+			callback: async (feedback, context) => {
+				const ac = await context.parseVariablesInString(feedback.options.accessCode)
 				for (const captioner of self.iCap.captioners) {
 					if (captioner.active_accesscode === ac && captioner.online && captioner.cc_activity.startsWith('Active')) {
 						return true
