@@ -14,5 +14,7 @@ export async function parseResponse(data, name) {
 	this.iCap.users = data.users ?? this.iCap.users
 	this.iCap.sharedEncoders = data.sharedEncoders ?? this.iCap.sharedEncoders
 	this.updateVariableValues()
-	this.checkFeedbacks()
+	if (name === apiIds.activitiesCaptioners.label || name == apiIds.activitiesEncoders.label) {
+		this.checkFeedbacks()
+	}
 }
