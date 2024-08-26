@@ -27,7 +27,14 @@ export function logError(error, name) {
 				'error',
 				`${name} - ${error.response.status}: ${JSON.stringify(error.code)}\n${JSON.stringify(error.response.data)}`
 			)
-			this.updateStatus(InstanceStatus.UnknownError, `${error.response.status}: ${JSON.stringify(error.code)}`)
+			if (error.response.data.error === 'Invalid credentials') {
+				this.updateStatus(
+					InstanceStatus.AuthenticationFailure,
+					`${error.response.status}: ${error.response.data.error}`
+				)
+			} else {
+				this.updateStatus(InstanceStatus.UnknownError, `${error.response.status}: ${JSON.stringify(error.code)}`)
+			}
 		} catch {
 			this.log('error', `${JSON.stringify(error.code)}`)
 			this.updateStatus(InstanceStatus.ConnectionFailure, `${JSON.stringify(error.code)}`)

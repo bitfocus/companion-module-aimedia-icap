@@ -1,7 +1,8 @@
 {
 	"name": "aimedia-icap",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "src/main.js",
+	"type": "module",
 	"scripts": {
 		"format": "prettier -w .",
 		"package": "companion-module-build"
@@ -12,8 +13,8 @@
 		"url": "git+https://github.com/bitfocus/companion-module-aimedia-icap.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.8.0",
-		"axios": "^1.7.2"
+		"@companion-module/base": "~1.10.0",
+		"axios": "^1.7.5"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^1.5.1"
