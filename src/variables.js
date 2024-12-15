@@ -24,7 +24,7 @@ export async function UpdateVariableDefinitions(self) {
 				{ variableId: `accesscode_${code.accesscode}_listeners`, name: `Access Code ${code.accesscode} Listeners` },
 				{ variableId: `accesscode_${code.accesscode}_readonly`, name: `Access Code ${code.accesscode} Read Only` },
 				{ variableId: `accesscode_${code.accesscode}_owner`, name: `Access Code ${code.accesscode} Owner` },
-				{ variableId: `accesscode_${code.accesscode}_sharedwith`, name: `Access Code ${code.accesscode} Shared With` }
+				{ variableId: `accesscode_${code.accesscode}_sharedwith`, name: `Access Code ${code.accesscode} Shared With` },
 			)
 		}
 	}
@@ -32,7 +32,7 @@ export async function UpdateVariableDefinitions(self) {
 	if (self.config.poll.includes(apiIds.activitiesCaptioners.id)) {
 		varDefs.push(
 			{ variableId: 'captioners_online', name: 'Captioners: Online Total' },
-			{ variableId: 'captioners_active', name: 'Captioners: Active Total' }
+			{ variableId: 'captioners_active', name: 'Captioners: Active Total' },
 		)
 	}
 	//activeCaptioners - works without extra args
@@ -52,7 +52,7 @@ export async function UpdateVariableDefinitions(self) {
 				},
 				{ variableId: `encoder_${encoder.username}_audioStatus`, name: `Encoder ${encoder.username} Audio Status` },
 				{ variableId: `encoder_${encoder.username}_cc_activity`, name: `Encoder ${encoder.username} CC Activity` },
-				{ variableId: `encoder_${encoder.username}_broadcastPlus`, name: `Encoder ${encoder.username} Broadcast Plus` }
+				{ variableId: `encoder_${encoder.username}_broadcastPlus`, name: `Encoder ${encoder.username} Broadcast Plus` },
 			)
 		}
 	}
@@ -67,7 +67,7 @@ export async function UpdateVariableDefinitions(self) {
 				{ variableId: `provider_${provider.company}_company`, name: `Provider ${provider.company}` },
 				{ variableId: `provider_${provider.company}_displayname`, name: `Provider ${provider.company} Display Name` },
 				{ variableId: `provider_${provider.company}_primarymail`, name: `Provider ${provider.company} Primary Mail` },
-				{ variableId: `provider_${provider.company}_primaryphone`, name: `Provider ${provider.company} Primary Phone` }
+				{ variableId: `provider_${provider.company}_primaryphone`, name: `Provider ${provider.company} Primary Phone` },
 			)
 		}
 	}
@@ -132,7 +132,7 @@ export async function UpdateVariableDefinitions(self) {
 			},
 			{ variableId: 'systemHealth_primary_auth_server_status', name: 'System Heatlh - Primary Auth Server Status' },
 			{ variableId: 'systemHealth_reporting_server', name: 'System Heatlh - Reporting Server' },
-			{ variableId: 'systemHealth_health_messages', name: 'System Heatlh - Messages' }
+			{ variableId: 'systemHealth_health_messages', name: 'System Heatlh - Messages' },
 		)
 	}
 	//uptime - requires extra args  - requires iCap Broadcast Plus plan
@@ -150,7 +150,7 @@ export async function UpdateVariableDefinitions(self) {
 				{ variableId: `user_${user.usernamey}_samlgroup`, name: `User ${user.username} SAML Group` },
 				{ variableId: `user_${user.usernamey}_disabled`, name: `User ${user.username} Disabled` },
 				{ variableId: `user_${user.usernamey}_passwordexpired`, name: `User ${user.username} Password Expired` },
-				{ variableId: `user_${user.usernamey}_broadcast_plus`, name: `User ${user.username} Broadcast Plus` }
+				{ variableId: `user_${user.usernamey}_broadcast_plus`, name: `User ${user.username} Broadcast Plus` },
 			)
 		}
 	}
