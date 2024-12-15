@@ -20,52 +20,52 @@ export function stopPolling() {
 	return undefined
 }
 
-export async function pollStatus() {
+export function pollStatus() {
 	if (this.axios) {
 		if (this.config.poll.includes(apiIds.accesscodes.id)) {
-			await this.query_iCap(this.iCap.api.accesscodes, apiIds.accesscodes.label)
+			this.query_iCap(this.iCap.api.accesscodes, apiIds.accesscodes.label)
 		}
 		if (this.config.poll.includes(apiIds.activitiesCaptioners.id)) {
-			await this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activitiesCaptioners.label)
+			this.query_iCap(this.iCap.api.activeCaptioners, apiIds.activitiesCaptioners.label)
 		}
 		if (this.config.poll.includes(apiIds.activitiesEncoders.id)) {
-			await this.query_iCap(this.iCap.api.activeEncoders, apiIds.activitiesEncoders.label)
+			this.query_iCap(this.iCap.api.activeEncoders, apiIds.activitiesEncoders.label)
 		}
 		if (this.config.poll.includes(apiIds.captioncast.id)) {
-			await this.query_iCap(this.iCap.api.captionCast, apiIds.captioncast.label)
+			this.query_iCap(this.iCap.api.captionCast, apiIds.captioncast.label)
 		}
 		if (this.config.poll.includes(apiIds.providers.id)) {
-			await this.query_iCap(this.iCap.api.providers, apiIds.providers.label)
+			this.query_iCap(this.iCap.api.providers, apiIds.providers.label)
 		}
 		if (this.config.poll.includes(apiIds.email.id)) {
-			await this.query_iCap(this.iCap.api.emailNotices, apiIds.email.label)
+			this.query_iCap(this.iCap.api.emailNotices, apiIds.email.label)
 		}
 		if (this.config.poll.includes(apiIds.encoderActivity.id)) {
-			await this.query_iCap(this.iCap.api.encoderActivity, apiIds.encoderActivity.label)
+			this.query_iCap(this.iCap.api.encoderActivity, apiIds.encoderActivity.label)
 		}
 		if (this.config.poll.includes(apiIds.encoderPermissions.id)) {
-			await this.query_iCap(this.iCap.api.encoderPermissions, apiIds.encoderPermissions.label)
+			this.query_iCap(this.iCap.api.encoderPermissions, apiIds.encoderPermissions.label)
 		}
 		//logs - requires extra args
 		if (this.config.poll.includes(apiIds.logs.id)) {
-			//await this.query_iCap(this.iCap.api.logs, apiIds.logs.label)
+			//this.query_iCap(this.iCap.api.logs, apiIds.logs.label)
 		}
 		//sessionIDs - requires extra args
 		if (this.config.poll.includes(apiIds.sessionIDs.id)) {
-			//await this.query_iCap(this.iCap.api.sessionIDs, apiIds.sessionIDs.label)
+			//this.query_iCap(this.iCap.api.sessionIDs, apiIds.sessionIDs.label)
 		}
 		if (this.config.poll.includes(apiIds.sharedEncoders.id)) {
-			await this.query_iCap(this.iCap.api.sharedEncoders, apiIds.sharedEncoders.label)
+			this.query_iCap(this.iCap.api.sharedEncoders, apiIds.sharedEncoders.label)
 		}
 		if (this.config.poll.includes(apiIds.systemHealth.id)) {
-			await this.query_iCap(this.iCap.api.systemHealth, apiIds.systemHealth.label)
+			this.query_iCap(this.iCap.api.systemHealth, apiIds.systemHealth.label)
 		}
 		//uptime - requires extra args  - requires iCap Broadcast Plus plan
 		if (this.config.poll.includes(apiIds.uptime.id)) {
-			//await this.query_iCap(this.iCap.api.uptime, apiIds.uptime.label)
+			//this.query_iCap(this.iCap.api.uptime, apiIds.uptime.label)
 		}
 		if (this.config.poll.includes(apiIds.users.id)) {
-			await this.query_iCap(this.iCap.api.users, apiIds.users.label)
+			this.query_iCap(this.iCap.api.users, apiIds.users.label)
 		}
 	}
 	if (this.config.pollInterval > 0) {

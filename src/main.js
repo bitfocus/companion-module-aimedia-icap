@@ -10,6 +10,7 @@ import * as polling from './polling.js'
 import * as query from './query.js'
 import * as response from './parseResponse.js'
 import axios from 'axios'
+import PQueue from 'p-queue'
 
 import { dummy_password, iCapGateway, iCapHeaders, iCapTimeout } from './consts.js'
 
@@ -17,6 +18,7 @@ class ModuleInstance extends InstanceBase {
 	constructor(internal) {
 		super(internal)
 		Object.assign(this, { ...config, ...logging, ...polling, ...query, ...response })
+		this.queue = new PQueue({ concurrency: 1, interval: 100, intervalCap: 1 })
 	}
 
 	async init(config) {
@@ -27,6 +29,7 @@ class ModuleInstance extends InstanceBase {
 	async destroy() {
 		this.log('debug', `destroy: ${this.id}`)
 		this.stopPolling()
+		this.queue.clear()
 		if (this.axios) {
 			delete this.axios
 		}
@@ -106,6 +109,7 @@ class ModuleInstance extends InstanceBase {
 
 	async configUpdated(config) {
 		this.config = config
+		this.queue.clear()
 		this.checkConfig()
 		this.setup_iCap(this.config.company)
 		this.setupAxios()
