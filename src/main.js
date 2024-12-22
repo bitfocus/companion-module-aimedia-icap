@@ -19,6 +19,7 @@ class ModuleInstance extends InstanceBase {
 		super(internal)
 		Object.assign(this, { ...config, ...logging, ...polling, ...query, ...response })
 		this.queue = new PQueue({ concurrency: 1, interval: 100, intervalCap: 1 })
+		this.currentStatus = { status: InstanceStatus.Disconnected, message: '' }
 	}
 
 	async init(config) {
@@ -27,7 +28,7 @@ class ModuleInstance extends InstanceBase {
 
 	// When module gets deleted
 	async destroy() {
-		this.log('debug', `destroy: ${this.id}`)
+		this.log('debug', `destroy: ${this.id}:${this.label}`)
 		this.stopPolling()
 		this.queue.clear()
 		if (this.axios) {
@@ -94,9 +95,17 @@ class ModuleInstance extends InstanceBase {
 			return true
 		} else {
 			this.log('warn', `Invalid config`)
-			this.updateStatus(InstanceStatus.BadConfig)
+			this.checkStatus(InstanceStatus.BadConfig, 'Invalid Config')
 			return undefined
 		}
+	}
+
+	checkStatus(status = InstanceStatus.Disconnected, message = '') {
+		if (status === this.currentStatus.status && message === this.currentStatus.message) return false
+		this.updateStatus(status, message.toString())
+		this.currentStatus.status = status
+		this.currentStatus.message = message
+		return true
 	}
 
 	checkConfig() {
@@ -112,9 +121,10 @@ class ModuleInstance extends InstanceBase {
 		this.queue.clear()
 		this.checkConfig()
 		this.setup_iCap(this.config.company)
-		this.setupAxios()
-		this.updateStatus(InstanceStatus.Connecting)
-		this.startPolling()
+		if (this.setupAxios()) {
+			this.checkStatus(InstanceStatus.Connecting)
+			this.startPolling()
+		}
 	}
 
 	updateActions() {
