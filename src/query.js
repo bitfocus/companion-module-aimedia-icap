@@ -1,8 +1,8 @@
-export function query_iCap(msg, name) {
+export async function query_iCap(msg, name) {
 	if (msg === undefined || name === undefined) {
 		return undefined
 	}
-	this.queue
+	return await this.queue
 		.add(async () => {
 			try {
 				const response = await this.axios.get(msg)
