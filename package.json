@@ -1,6 +1,6 @@
 {
 	"name": "aimedia-icap",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"main": "src/main.js",
 	"type": "module",
 	"scripts": {
@@ -23,7 +23,6 @@
 		"@companion-module/tools": "^2.1.1",
 		"eslint": "^9.20.0",
 		"prettier": "^3.5.0"
-
 	},
 	"engines": {
 		"node": "^22.13"
