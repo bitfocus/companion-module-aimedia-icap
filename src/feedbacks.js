@@ -66,7 +66,7 @@ export async function UpdateFeedbacks(self) {
 			id: 'accessCode',
 			type: 'textinput',
 			label: 'Access Code',
-			useVariables: { local: true},
+			useVariables: { local: true },
 			regex: Regex.SOMETHING,
 		}
 		const acInfo = {

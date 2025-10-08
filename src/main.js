@@ -12,7 +12,7 @@ import * as response from './parseResponse.js'
 import axios from 'axios'
 import PQueue from 'p-queue'
 
-import { dummy_password, iCapGateway, iCapHeaders, iCapTimeout } from './consts.js'
+import { iCapGateway, iCapHeaders, iCapTimeout } from './consts.js'
 
 class ModuleInstance extends InstanceBase {
 	constructor(internal) {
@@ -108,18 +108,9 @@ class ModuleInstance extends InstanceBase {
 		return true
 	}
 
-	checkConfig() {
-		if (this.config.pass !== dummy_password && this.config.pass !== undefined) {
-			this.config.password = this.config.pass
-			this.config.pass = dummy_password
-			this.saveConfig(this.config)
-		}
-	}
-
 	async configUpdated(config) {
 		this.config = config
 		this.queue.clear()
-		this.checkConfig()
 		this.setup_iCap(this.config.company)
 		if (this.setupAxios()) {
 			this.checkStatus(InstanceStatus.Connecting)

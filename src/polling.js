@@ -21,7 +21,7 @@ export function stopPolling() {
 }
 
 export async function pollStatus() {
-	if (this.axios) {
+	if (this.axios && this.queue.size <= 10) {
 		if (this.config.poll.includes(apiIds.accesscodes.id)) {
 			await this.query_iCap(this.iCap.api.accesscodes, apiIds.accesscodes.label)
 		}

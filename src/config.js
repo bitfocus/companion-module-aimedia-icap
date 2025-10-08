@@ -19,8 +19,8 @@ export function getConfigFields() {
 			regex: Regex.SOMETHING,
 		},
 		{
-			type: 'textinput',
-			id: 'pass',
+			type: 'secret-text',
+			id: 'password',
 			label: 'Password',
 			width: 12,
 			regex: Regex.SOMETHING,

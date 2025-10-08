@@ -3,7 +3,6 @@ import { combineRgb } from '@companion-module/base'
 export const iCapGateway = 'https://icap.eegapis.com/api/1.0/'
 export const iCapTimeout = 5000
 export const iCapHeaders = { 'content-type': 'application/json' }
-export const dummy_password = '********'
 
 export const apiIds = {
 	accesscodes: { id: 'accesscode', label: 'Access Codes' },
