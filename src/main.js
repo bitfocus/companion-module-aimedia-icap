@@ -22,8 +22,8 @@ class ModuleInstance extends InstanceBase {
 		this.currentStatus = { status: InstanceStatus.Disconnected, message: '' }
 	}
 
-	async init(config) {
-		this.configUpdated(config)
+	async init(config, _isFirstInit, secrets) {
+		this.configUpdated(config, secrets)
 	}
 
 	// When module gets deleted
@@ -82,14 +82,14 @@ class ModuleInstance extends InstanceBase {
 		if (this.axios) {
 			delete this.axios
 		}
-		if (this.config.user && this.config.password && this.config.company) {
+		if (this.config.user && this.secrets.password && this.config.company) {
 			this.axios = axios.create({
 				baseURL: iCapGateway,
 				timeout: iCapTimeout,
 				headers: iCapHeaders,
 				auth: {
 					username: this.config.user,
-					password: this.config.password,
+					password: this.secrets.password,
 				},
 			})
 			return true
@@ -108,8 +108,9 @@ class ModuleInstance extends InstanceBase {
 		return true
 	}
 
-	async configUpdated(config) {
+	async configUpdated(config, secrets) {
 		this.config = config
+		this.secrets = secrets
 		this.queue.clear()
 		this.setup_iCap(this.config.company)
 		if (this.setupAxios()) {
