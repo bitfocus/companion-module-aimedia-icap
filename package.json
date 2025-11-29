@@ -1,6 +1,6 @@
 {
 	"name": "aimedia-icap",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"main": "src/main.js",
 	"type": "module",
 	"scripts": {
@@ -15,14 +15,14 @@
 		"url": "git+https://github.com/bitfocus/companion-module-aimedia-icap.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.13.4",
+		"@companion-module/base": "~1.13.5",
 		"axios": "^1.13.2",
 		"p-queue": "~9.0.1"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^2.4.2",
 		"eslint": "^9.39.1",
-		"prettier": "^3.7.2"
+		"prettier": "^3.7.3"
 	},
 	"engines": {
 		"node": "^22.13"
